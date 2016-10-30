@@ -13,10 +13,41 @@ import java.util.Scanner;
 
 public class Herbology {
 	private static final int STAR = 0, FOX = 1, FJARN = 2, DREAM = 3, AETH = 4;
+	private static final int OLD = 0, DEADLY = 1, UNBENDING = 2;
+	private static final int SCARS = 0, ARMIES = 1, DEMON = 2, PACT = 3;
+
+	public static void calculateCosts(Potion[] pots, Herb[] herbs) {
+
+
+
+	}
+
 	public static void main(String[] args) throws InterruptedException {
 		File f = new File("kush.txt");
-		Herb[] herbs = new Herb[6]; // Create herbs list.
-		// 0 = Starlight Rose, 1 = Foxflower, 2 = Fjarnskaggl, 3 = Dreamleaf, 4 = Aethril.
+		Herb[] herbs = new Herb[5]; // Create herbs list.
+		Potion[] pots = new Potion[4];
+		Potion[] flasks = new Potion[4];
+
+		int[] deadIngred = {2,0,4,4,0};
+		pots[DEADLY] = new Potion("Deadly Grace", deadIngred);
+
+		int[] oldWarIngred = {2,4,4,0,0};
+		pots[OLD] = new Potion("Old-War",oldWarIngred);
+
+		int[] unbendIngred = {2,4,0,0,4};
+		pots[UNBENDING] = new Potion("Unbending", unbendIngred);
+
+		int[] ttsI = {7, 0, 0, 10, 10};
+		flasks[SCARS] = new Potion("Ten Thousand Scars", ttsI);
+
+		int[] caIngred = {7,10, 0, 0, 10};
+		flasks[ARMIES] = new Potion("Countless Armies", caIngred);
+
+		int[] sdIngred = {7, 10, 10, 0, 0};
+		flasks[DEMON] = new Potion("Seventh Demon", sdIngred);
+
+		int[] wpIngred = {7, 0, 10, 10, 0};
+		flasks[PACT] = new Potion("Whispered Pact", wpIngred);
 
 		// If the file doesn't exist program has never been loaded before. Initiate first time start-up.
 		if(!f.exists() && !f.isDirectory()) {
@@ -52,9 +83,7 @@ public class Herbology {
 		}
 
 		System.out.println("Awesome! Now that we got our prices, lets do some math!");
-		// Calculate prices of 
+		calculateCosts(pots, herbs);
 
 	}
-
-
 }
